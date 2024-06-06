@@ -21,3 +21,41 @@ members: [
 # step 4: exec into lits left container set slave by command
 
 # rs.slaveOK()
+
+# at master : create user by command
+
+# db.createUser({user: "admin", pwd: "123123", roles: [{role: "root", db: "admin"}]})
+
+# create role
+
+# use admin
+
+# db.createRole(
+
+# {
+
+# role: "user",
+
+# privileges: [
+
+# { resource: { cluster: true }, actions: [ "addShard" ] },
+
+# { resource: { db: "config", collection: "" }, actions: [ "find", "update", "insert", "remove" ] },
+
+# { resource: { db: "users", collection: "" }, actions: [ "update", "insert", "remove" ] },
+
+# { resource: { db: "", collection: "" }, actions: [ "find" ] }
+
+# ],
+
+# roles: [
+
+# { role: "read", db: "admin" }
+
+# ]
+
+# },
+
+# { w: "majority" , wtimeout: 5000 }
+
+# )
